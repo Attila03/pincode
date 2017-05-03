@@ -1,6 +1,6 @@
 import requests
 import json
-from src.Empower.settings import GOOGLE_API_KEY
+from src.myproject.settings import GOOGLE_API_KEY
 
 # address = 'Khadakpada, Kalyan West, Maharashtra, India'
 #
