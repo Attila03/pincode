@@ -1,0 +1,20 @@
+{% extends 'accounts/base.html' %}
+
+{% block content %}
+
+{% if request.user.is_authenticated %}
+<div class="text-center">
+    <h3>{{ request.user.profile.address }}</h3>
+    <h2>{{ request.user.profile.address.pincode}}</h2>
+</div>
+{% endif %}
+
+{% if not request.user.is_authenticated %}
+<div class="text-center">
+    <p> You need to register/log in and/or update address to view pin.<br>
+        Click on the appropriate icon at the top of the screen.</p>
+</div>
+{% endif %}
+
+
+{% endblock content %}

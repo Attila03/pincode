@@ -1,0 +1,46 @@
+{% extends 'accounts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class=" container-fluid">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="row">
+                <div class="col-xs-offset-2 col-xs-8 text-center">
+                {% if error_msg %}
+                <p>{{ error_msg }}</p>
+                {% endif %}
+                <form class="myform" method="post">
+                    {% csrf_token %}
+                    <legend><strong>Address</strong></legend>
+                        {{ form | crispy }}
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
+{% block js %}
+    <!--<script>-->
+        <!--$(document).ready(function(){-->
+            <!--var data_obtained = false;-->
+            <!--$('.myform').keyup(function(){-->
+                <!--$('input').each(function(){-->
+                   <!--if($(this).val() !=''){-->
+                       <!--data_obtained = true;-->
+                   <!--}else{-->
+                       <!--data_obtained=false;-->
+                   <!--}-->
+                <!--});-->
+
+                <!--if (data_obtained===true){-->
+                    <!--$('.getpin').prop('disabled', false)-->
+                <!--};-->
+            <!--});-->
+
+        <!--});-->
+    <!--</script>-->
+{% endblock js %}
