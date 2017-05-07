@@ -1,6 +1,6 @@
 import requests
 import json
-from src.myproject.settings import GOOGLE_API_KEY
+from myproject.settings import GOOGLE_API_KEY
 
 # address = 'Khadakpada, Kalyan West, Maharashtra, India'
 #
@@ -16,13 +16,13 @@ def get_pincode(address):
 
     response = requests.get(url)
 
-    tresponse = json.loads(response.text)
+#response.text converts it to string in json format
+#json.loads converts it to python dictionary
+    response_dictionary = json.loads(response.text)
 
-    # print(response.text)
+    if response_dictionary['status'] == 'OK':
+        for address_component in response_dictionary['results'][0]['address_components']:
+            if 'postal_code' in address_component['types']:
+                return address_component['long_name']
 
-    if tresponse['status']=='OK':
-        for component in tresponse['results'][0]['address_components']:
-            if 'postal_code' in component['types']:
-                return component['long_name']
-
-# print(get_pincode('Bldg. no. 16, Nebula Darshan, Khadakpada, Kalyan West, Maharashtra, India'))
+print(get_pincode('Bldg. no. 16, Nebula Darshan, Khadakpada, Kalyan West, Maharashtra, India'))

@@ -1,0 +1,1 @@
+web: gunciorn myproject.wsgi --log-file -

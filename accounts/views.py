@@ -63,9 +63,7 @@ class Address(LoginRequiredMixin, View):
         form = AddressForm()
         if request.user.profile.address:
             form = AddressForm(instance=request.user.profile.address)
-        context = {
-            'form': form,
-        }
+        context = {'form': form}
         return render(request, 'accounts/Address.html', context=context)
 
     def post(self, request, *args, **kwargs):

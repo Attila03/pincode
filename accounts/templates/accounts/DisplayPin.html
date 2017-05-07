@@ -4,8 +4,13 @@
 
 {% if request.user.is_authenticated %}
 <div class="text-center">
+    {% if request.user.profile.address %}
     <h3>{{ request.user.profile.address }}</h3>
     <h2>{{ request.user.profile.address.pincode}}</h2>
+    {% endif %}
+    {% if not request.user.profile.address %}
+    <h3>Please enter your address.<br>Click on update address in the navigation bar at top to enter address.</h3>
+    {% endif %}
 </div>
 {% endif %}
 
