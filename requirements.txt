@@ -9,3 +9,5 @@ python-decouple==3.0
 requests==2.13.0
 six==1.10.0
 dj-database-url==0.4.2
+gunicorn==19.7.1
+ez-setup==0.9
