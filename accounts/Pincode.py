@@ -25,4 +25,4 @@ def get_pincode(address):
             if 'postal_code' in address_component['types']:
                 return address_component['long_name']
 
-print(get_pincode('Bldg. no. 16, Nebula Darshan, Khadakpada, Kalyan West, Maharashtra, India'))
+#print(get_pincode('Bldg. no. 16, Nebula Darshan, Khadakpada, Kalyan West, Maharashtra, India'))
